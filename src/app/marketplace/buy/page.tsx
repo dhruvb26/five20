@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { HoverEffect } from "@/components/ui/card-hover-effect";
+import { Input } from "@/components/ui/input";
 export default function BuyPage() {
   // State to hold the search term
   const [searchTerm, setSearchTerm] = useState("");
@@ -76,7 +77,7 @@ export default function BuyPage() {
   return (
     <div className="flex flex-col items-center min-h-screen p-40">
       <div className="search-div w-[40%] items-start">
-        <input
+        <Input
           type="text"
           placeholder="Search..."
           className="mb-4 p-2 border rounded ml-4 w-full"

@@ -4,7 +4,10 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { ImagesSlider } from "../../components/ui/images-slider";
 import { MagicButton } from "@/components/magic-button";
-
+import { ArrowUpIcon, CircleDollarSign } from "lucide-react";
+import { HandHelping } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { Input } from "@/components/ui/input";
 const donate = () => {
   const images = [
     "https://images.unsplash.com/photo-1576192350050-d9e08ee1f122?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -74,19 +77,33 @@ const donate = () => {
   const defaultImage = "https://your-default-image-url.com/default_image.jpg"; // Provide your default image URL here
 
   return (
-    <div className="max-w-5xl mx-auto flex flex-col items-center p-40">
-      <div className="search-div w-[40%] items-start">
-        <input
-          type="text"
-          placeholder={`Search for agency...`}
-          className="mb-4 p-2 border rounded ml-4 w-full"
-          value={zipcode}
-          onChange={handleZipcodeChange}
-        />
+    <div className="max-w-5xl mx-auto flex flex-col items-center p-40 pb-0">
+      <h1 className="font-bold text-7xl ">Donate</h1>
+      <p className="text-lg p-0 py-2">
+        Donate meals to earn credits towards your next order!
+      </p>
+      <div className="flex flex-row items-center w-full justify-between p-4 px-0">
+        <div className="w-[50%]">
+          <Input
+            type="text"
+            placeholder="Search for a zipcode..."
+            className="border rounded w-full"
+            value={zipcode}
+            onChange={handleZipcodeChange}
+          />
+        </div>
+        <div className="flex flex-row items-center justify-end space-x-5">
+          <Badge className="flex flex-col items-center text-center border-2 p-2 rounded-lg border-black">
+            <HandHelping /> <p>100 meals</p>
+          </Badge>
+          <Badge className="flex flex-col items-center text-center border-2 p-2 rounded-lg border-black">
+            <CircleDollarSign /> <p>50 credits</p>
+          </Badge>
+        </div>
       </div>
 
       {agencyName === null ? (
-        <ImagesSlider className="h-[40rem]" images={images}>
+        <ImagesSlider className="h-[28rem] rounded-md" images={images}>
           <motion.div
             initial={{
               opacity: 0,

@@ -1,6 +1,9 @@
 "use client";
 import dynamic from "next/dynamic";
 import React from "react";
+import Link from "next/link";
+import { Spotlight } from "@/components/ui/spotlight";
+import { MagicButtonWhite } from "@/components/ui/magic-button-white";
 const World = dynamic(
   () => import("../../components/ui/globe").then((m) => m.World),
   {
@@ -11,14 +14,14 @@ const World = dynamic(
 export function HomePage() {
   const globeConfig = {
     pointSize: 4,
-    globeColor: "#1946EC",
+    globeColor: "#00BCD4",
     showAtmosphere: true,
     atmosphereColor: "#FFFFFF",
     atmosphereAltitude: 0.1,
     emissive: "#062056",
     emissiveIntensity: 0.1,
     shininess: 0.9,
-    polygonColor: "rgba(255,255,255,0.7)",
+    polygonColor: "#008234",
     ambientLight: "#38bdf8",
     directionalLeftLight: "#ffffff",
     directionalTopLight: "#ffffff",
@@ -31,7 +34,7 @@ export function HomePage() {
     autoRotate: true,
     autoRotateSpeed: 0.5,
   };
-  const colors = ["#06b6d4", "#3b82f6", "#6366f1"];
+  const colors = ["#291600", "#291600", "#291600"];
   const sampleArcs = [
     {
       order: 1,
@@ -398,11 +401,14 @@ export function HomePage() {
   return (
     <div className="flex flex-col h-screen overflow-hidden">
       <div className="flex flex-col justify-between h-full items-center pt-40">
-        <div className="text-center">
-          <h1 className="text-6xl font-bold">Five20</h1>
+        <div className="text-center space-y-5">
+          <h1 className="text-8xl font-bold">Five20</h1>
           <p className="mt-2 text-xl">
             Join us in revolutionizing food waste management.
           </p>
+          <MagicButtonWhite>
+            <Link href={"/register"}>Get Started</Link>
+          </MagicButtonWhite>
         </div>
         <div className="flex flex-row items-center w-full mx-auto relative overflow-hidden h-full md:h-[40rem]">
           <div className="items-center w-full flex flex-col">

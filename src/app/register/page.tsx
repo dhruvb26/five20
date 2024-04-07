@@ -7,6 +7,8 @@ import { GitHubLogoIcon } from "@radix-ui/react-icons";
 import { TwitterLogoIcon } from "@radix-ui/react-icons";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { MagicButton } from "@/components/magic-button";
+import { MagicButtonWhite } from "@/components/ui/magic-button-white";
 
 export function RegisterPage() {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -43,19 +45,11 @@ export function RegisterPage() {
             <Input id="password" placeholder="••••••••" type="password" />
           </LabelInputContainer>
 
-          <div className="flex flex-col items-start justify-center">
-            <button
-              className="bg-gradient-to-br relative group/btn from-black dark:from-zinc-900 dark:to-zinc-900 to-neutral-600 block dark:bg-zinc-800 w-full text-white rounded-md h-10 font-medium shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset] dark:shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_-1px_0px_0px_var(--zinc-800)_inset]"
-              type="submit"
-            >
-              Sign up &rarr;
-            </button>
-            <button
-              className="bg-gradient-to-br relative group/btn from-black dark:from-zinc-900 dark:to-zinc-900 to-neutral-600 block dark:bg-zinc-800 w-full text-white rounded-md h-10 font-medium shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset] dark:shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_-1px_0px_0px_var(--zinc-800)_inset]"
-              type="submit"
-            >
-              <Link href="/home">Go Back</Link>
-            </button>
+          <div className="flex flex-col space-y-4 justify-center w-full items-center">
+            <MagicButton>Sign up</MagicButton>
+            <MagicButtonWhite>
+              <Link href={"/home"}>Go Back</Link>
+            </MagicButtonWhite>
           </div>
         </form>
       </div>
