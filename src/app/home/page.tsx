@@ -2,8 +2,6 @@
 import dynamic from "next/dynamic";
 import React from "react";
 import Link from "next/link";
-import { Spotlight } from "@/components/ui/spotlight";
-import Image from "next/image";
 import { MagicButtonWhite } from "@/components/ui/magic-button-white";
 const World = dynamic(
   () => import("../../components/ui/globe").then((m) => m.World),
