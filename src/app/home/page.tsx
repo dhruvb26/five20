@@ -407,6 +407,7 @@ export function HomePage() {
       <div className="flex flex-col items-center justify-center py-40 h-screen md:h-auto dark:bg-black bg-white relative w-full">
         <div className="button-div flex flex-col items-center justify-center py-5">
           <h1 className="text-8xl font-bold">Five20</h1>
+         
           <Button className="items-center">
             <Link href="/register">Get Started</Link>
           </Button>
