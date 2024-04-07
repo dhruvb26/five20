@@ -497,6 +497,7 @@ export async function GET(req: Request) {
         - Surplus Actions: Up to three key perishable items identified as surplus, with suggestions to sell them. Strictly mention that they have to sell it and don't suggest any promotion of dishes.
         - Replenishment Actions: Up to three ingredients flagged for imminent replenishment, with advice on the optimal buying timeframe to ensure menu readiness and ingredient freshness.
         
+        
         Your insights will guide the restaurant in making strategic decisions for inventory management and marketing, aiming for a perfect balance between meeting demand and reducing waste. Keep the total output under 150 words for clarity and direct application in operational strategies.
         `;
 
@@ -505,8 +506,9 @@ export async function GET(req: Request) {
   });
   try {
     const data = await openai.chat.completions.create({
-      model: "gpt-3.5-turbo",
+      model: "gpt-4",
       messages: [{ role: "system", content: prompt }],
+      temperature: 0,
     });
 
     return new NextResponse(

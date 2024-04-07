@@ -3,6 +3,7 @@ import dynamic from "next/dynamic";
 import React from "react";
 import Link from "next/link";
 import { Spotlight } from "@/components/ui/spotlight";
+import Image from "next/image";
 import { MagicButtonWhite } from "@/components/ui/magic-button-white";
 const World = dynamic(
   () => import("../../components/ui/globe").then((m) => m.World),
@@ -14,14 +15,14 @@ const World = dynamic(
 export function HomePage() {
   const globeConfig = {
     pointSize: 4,
-    globeColor: "#00BCD4",
+    globeColor: "#0066ff",
     showAtmosphere: true,
     atmosphereColor: "#FFFFFF",
     atmosphereAltitude: 0.1,
     emissive: "#062056",
     emissiveIntensity: 0.1,
     shininess: 0.9,
-    polygonColor: "#008234",
+    polygonColor: "RGBA(0, 255, 0, 1)",
     ambientLight: "#38bdf8",
     directionalLeftLight: "#ffffff",
     directionalTopLight: "#ffffff",
