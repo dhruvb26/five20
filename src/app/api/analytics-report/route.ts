@@ -502,7 +502,7 @@ export async function GET(req: Request) {
         `;
 
   const openai = new OpenAIApi({
-    apiKey: "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",
+    apiKey: process.env.NEXT_PUBLIC_OPENAI_API_KEY,
   });
   try {
     const data = await openai.chat.completions.create({
