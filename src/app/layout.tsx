@@ -3,7 +3,7 @@ import { Inter as FontSans } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/ui/theme-provider";
-import NavigationMenu from "@/components/navigation-menu";
+import { FloatingNavDemo } from "@/components/navigation-menu";
 const fontSans = FontSans({
   subsets: ["latin"],
   variable: "--font-sans",
@@ -32,7 +32,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <NavigationMenu></NavigationMenu>
+          <FloatingNavDemo />
           {children}
         </ThemeProvider>
       </body>

@@ -18,30 +18,32 @@ export function InfiniteMovingCardsDemo() {
 const testimonials = [
   {
     quote:
-      "It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair.",
+      "Using the marketplace app to manage our excess inventory has been a game-changer for Bella Vista Kitchen. It's incredibly user-friendly and has helped us significantly reduce waste. We've been able to buy ingredients at lower prices and sell our surplus, improving our bottom line. Highly recommend!",
     name: "Charles Dickens",
     title: "A Tale of Two Cities",
   },
   {
     quote:
-      "To be, or not to be, that is the question: Whether 'tis nobler in the mind to suffer The slings and arrows of outrageous fortune, Or to take Arms against a Sea of troubles, And by opposing end them: to die, to sleep.",
+      "We were skeptical about joining another platform but decided to give it a try. Best decision ever! Not only did we clear out space by selling excess inventory, but we also found rare ingredients from other restaurants. The customer service is top-notch, always ready to assist with any issues.",
     name: "William Shakespeare",
     title: "Hamlet",
   },
   {
-    quote: "All that we see or seem is but a dream within a dream.",
+    quote:
+      "Being part of this marketplace has fostered a sense of community among local restaurants. It's amazing how we can support each other by swapping ingredients. Bella Vista Kitchen has saved a considerable amount on ingredients since joining. The app's inventory management tool is a bonus!",
     name: "Edgar Allan Poe",
     title: "A Dream Within a Dream",
   },
   {
     quote:
-      "It is a truth universally acknowledged, that a single man in possession of a good fortune, must be in want of a wife.",
+      "At first, we had trouble navigating the app and understanding how to list our items effectively. However, after reaching out to support, they were incredibly helpful and guided us through the process. Now, we're not only managing our inventory better but also contributing to a more sustainable industry.",
+
     name: "Jane Austen",
     title: "Pride and Prejudice",
   },
   {
     quote:
-      "Call me Ishmael. Some years ago—never mind how long precisely—having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world.",
+      "As a small restaurant, every penny counts. This app has allowed us to optimize our inventory like never before. We've purchased high-quality ingredients at a fraction of the cost and sold items that would have otherwise gone to waste. It's empowering to know we have control over our inventory in such a detailed way.",
     name: "Herman Melville",
     title: "Moby-Dick",
   },

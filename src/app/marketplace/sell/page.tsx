@@ -1,95 +1,312 @@
-"use client";
+import { FoodItem, columns } from "./columns";
+import { DataTable } from "./data-table";
 
-import React, { useState } from "react";
-import { HoverEffect } from "@/components/ui/card-hover-effect";
-import { InfiniteMovingCardsDemo } from "@/components/infinite-scroll";
-export default function SellPage() {
-  // State to hold the search term
-  const [searchTerm, setSearchTerm] = useState("");
-  // Projects data
-  const projects = [
+async function getData(): Promise<FoodItem[]> {
+  // Fetch data from your API here.
+  return [
     {
-      title: "Lettuce",
-      price: "$10",
-      quantity: "10 lbs",
-      bestBy: "2022-12-12",
-      supplier: "Microsoft, Grade-A Farms",
-      ETA: "20 min",
-      link: "https://stripe.com",
-      imageLink:
-        "https://foodprint.org/wp-content/uploads/2018/10/AdobeStock_195401764.jpeg",
-    },
-    // Add other projects here
-    {
-      title: "Potatoes",
-      price: "$10",
-      quantity: "10 lbs",
-      bestBy: "2022-12-12",
-      supplier: "Microsoft, Grade-A Farms",
-      ETA: "5 min",
-      link: "https://stripe.com",
-      imageLink: "https://thumbs.dreamstime.com/b/bags-potatoes-20594198.jpg",
+      ingredient: "flour",
+      quantity: 79,
+      unit: "lbs",
+      shelfLife: null,
+      perishable: false,
     },
     {
-      title: "Tomatoes",
-      price: "$10",
-      quantity: "10 lbs",
-      bestBy: "2022-12-12",
-      supplier: "Microsoft, Grade-A Farms",
-      ETA: "5 min",
-      link: "https://stripe.com",
-      imageLink:
-        "https://extension.umaine.edu/publications/wp-content/uploads/sites/52/2019/06/tomatoes-for-sale.jpg",
+      ingredient: "tomatoes",
+      quantity: 2,
+      unit: "lbs",
+      shelfLife: 2,
+      perishable: true,
     },
     {
-      title: "Onions",
-      price: "$10",
-      quantity: "10 lbs",
-      bestBy: "2022-12-12",
-      supplier: "Microsoft, Grade-A Farms",
-      ETA: "5 min",
-      link: "https://stripe.com",
-      imageLink: "https://freerangestock.com/sample/2853/onions.jpg",
+      ingredient: "mozzarella",
+      quantity: 2,
+      unit: "lbs",
+      shelfLife: 15,
+      perishable: true,
     },
     {
-      title: "Cheese",
-      price: "$10",
-      quantity: "10 lbs",
-      bestBy: "2022-12-12",
-      supplier: "Microsoft, Grade-A Farms",
-      ETA: "5 min",
-      link: "https://stripe.com",
-      imageLink:
-        "https://modernfarmer.com/wp-content/uploads/2022/05/shutterstock_636694300.jpg",
+      ingredient: "basil",
+      quantity: -10,
+      unit: "lbs",
+      shelfLife: 0,
+      perishable: true,
+    },
+    {
+      ingredient: "spaghetti",
+      quantity: 22,
+      unit: "lbs",
+      shelfLife: null,
+      perishable: false,
+    },
+    {
+      ingredient: "pancetta",
+      quantity: 11,
+      unit: "lbs",
+      shelfLife: 25,
+      perishable: true,
+    },
+    {
+      ingredient: "eggs",
+      quantity: 82,
+      unit: "count",
+      shelfLife: 16,
+      perishable: true,
+    },
+    {
+      ingredient: "parmesan",
+      quantity: -11,
+      unit: "lbs",
+      shelfLife: 55,
+      perishable: true,
+    },
+    {
+      ingredient: "lasagna noodles",
+      quantity: 14,
+      unit: "lbs",
+      shelfLife: null,
+      perishable: false,
+    },
+    {
+      ingredient: "ground beef",
+      quantity: 24,
+      unit: "lbs",
+      shelfLife: 3,
+      perishable: true,
+    },
+    {
+      ingredient: "tomato sauce",
+      quantity: 32,
+      unit: "lbs",
+      shelfLife: 2,
+      perishable: true,
+    },
+    {
+      ingredient: "arborio rice",
+      quantity: 6,
+      unit: "lbs",
+      shelfLife: null,
+      perishable: false,
+    },
+    {
+      ingredient: "mushrooms",
+      quantity: 11,
+      unit: "lbs",
+      shelfLife: 5,
+      perishable: true,
+    },
+    {
+      ingredient: "chicken broth",
+      quantity: 16,
+      unit: "liters",
+      shelfLife: 0,
+      perishable: true,
+    },
+    {
+      ingredient: "onion",
+      quantity: 1,
+      unit: "lbs",
+      shelfLife: 25,
+      perishable: true,
+    },
+    {
+      ingredient: "penne",
+      quantity: 17,
+      unit: "lbs",
+      shelfLife: null,
+      perishable: false,
+    },
+    {
+      ingredient: "vodka",
+      quantity: 1.4,
+      unit: "liters",
+      shelfLife: null,
+      perishable: false,
+    },
+    {
+      ingredient: "heavy cream",
+      quantity: 5,
+      unit: "liters",
+      shelfLife: 10,
+      perishable: true,
+    },
+    {
+      ingredient: "chicken breast",
+      quantity: 28,
+      unit: "lbs",
+      shelfLife: 0,
+      perishable: true,
+    },
+    {
+      ingredient: "breadcrumbs",
+      quantity: -2,
+      unit: "lbs",
+      shelfLife: null,
+      perishable: false,
+    },
+    {
+      ingredient: "mascarpone",
+      quantity: 2.5,
+      unit: "lbs",
+      shelfLife: 9,
+      perishable: true,
+    },
+    {
+      ingredient: "espresso",
+      quantity: 5,
+      unit: "liters",
+      shelfLife: null,
+      perishable: false,
+    },
+    {
+      ingredient: "ladyfingers",
+      quantity: 150,
+      unit: "count",
+      shelfLife: 55,
+      perishable: true,
+    },
+    {
+      ingredient: "egg yolks",
+      quantity: 25,
+      unit: "count",
+      shelfLife: 16,
+      perishable: true,
+    },
+    {
+      ingredient: "cocoa powder",
+      quantity: 2.5,
+      unit: "lbs",
+      shelfLife: null,
+      perishable: false,
+    },
+    {
+      ingredient: "bread",
+      quantity: 5.5,
+      unit: "loaves",
+      shelfLife: 0,
+      perishable: true,
+    },
+    {
+      ingredient: "garlic",
+      quantity: -5,
+      unit: "lbs",
+      shelfLife: 55,
+      perishable: true,
+    },
+    {
+      ingredient: "olive oil",
+      quantity: 6,
+      unit: "liters",
+      shelfLife: null,
+      perishable: false,
+    },
+    {
+      ingredient: "balsamic vinegar",
+      quantity: 5,
+      unit: "liters",
+      shelfLife: null,
+      perishable: false,
+    },
+    {
+      ingredient: "polenta",
+      quantity: 14,
+      unit: "lbs",
+      shelfLife: null,
+      perishable: false,
+    },
+    {
+      ingredient: "veal shanks",
+      quantity: 20,
+      unit: "lbs",
+      shelfLife: 1,
+      perishable: true,
+    },
+    {
+      ingredient: "carrot",
+      quantity: 5,
+      unit: "lbs",
+      shelfLife: 25,
+      perishable: true,
+    },
+    {
+      ingredient: "celery",
+      quantity: 5,
+      unit: "lbs",
+      shelfLife: 25,
+      perishable: true,
+    },
+    {
+      ingredient: "white wine",
+      quantity: 0,
+      unit: "liters",
+      shelfLife: null,
+      perishable: false,
+    },
+    {
+      ingredient: "gnocchi",
+      quantity: 0,
+      unit: "lbs",
+      shelfLife: 25,
+      perishable: true,
+    },
+    {
+      ingredient: "pine nuts",
+      quantity: -2,
+      unit: "lbs",
+      shelfLife: 85,
+      perishable: true,
+    },
+    {
+      ingredient: "calamari",
+      quantity: -2,
+      unit: "lbs",
+      shelfLife: 2,
+      perishable: true,
+    },
+    {
+      ingredient: "lemon",
+      quantity: -1,
+      unit: "lbs",
+      shelfLife: 15,
+      perishable: true,
+    },
+    {
+      ingredient: "marinara sauce",
+      quantity: 5.6,
+      unit: "liters",
+      shelfLife: 2,
+      perishable: true,
+    },
+    {
+      ingredient: "sausage",
+      quantity: 11,
+      unit: "lbs",
+      shelfLife: 2,
+      perishable: true,
+    },
+    {
+      ingredient: "potatoes",
+      quantity: 21,
+      unit: "lbs",
+      shelfLife: 55,
+      perishable: true,
+    },
+    {
+      ingredient: "kale",
+      quantity: 10.5,
+      unit: "lbs",
+      shelfLife: 2,
+      perishable: true,
     },
   ];
+}
 
-  // Filter projects based on the search term
-  const filteredProjects = projects.filter((project) =>
-    project.title.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+export default async function DemoPage() {
+  const data = await getData();
 
   return (
-    <div className="max-w-5xl mx-auto px-8 flex flex-col items-center min-h-screen p-40">
-      <div className="flex flex-col items-center justify-center p-10">
-        <h1 className="text-4xl font-bold">Welcome back Joe!</h1>
-      </div>
-
-      <div className="search-div w-full items-start">
-        <input
-          type="text"
-          placeholder="Search..."
-          className="mb-4 p-2 border rounded ml-4 w-full"
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-        />
-      </div>
-
-      {filteredProjects.length > 0 ? (
-        <HoverEffect items={filteredProjects} />
-      ) : (
-        <div>No ingridients found.</div>
-      )}
+    <div className="flex flex-col items-center min-h-screen justify-center">
+      <DataTable columns={columns} data={data} />
     </div>
   );
 }

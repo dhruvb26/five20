@@ -1,13 +1,6 @@
 "use client";
-import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
-import { ModeToggle } from "@/components/ui/theme-button";
-import { Button } from "@/components/ui/button";
-import RegisterPage from "../register/page";
-import Link from "next/link";
-import React, { useState } from "react";
-
-import { cn } from "@/lib/utils";
+import React from "react";
 const World = dynamic(
   () => import("../../components/ui/globe").then((m) => m.World),
   {
@@ -18,7 +11,7 @@ const World = dynamic(
 export function HomePage() {
   const globeConfig = {
     pointSize: 4,
-    globeColor: "#0000A5",
+    globeColor: "#1946EC",
     showAtmosphere: true,
     atmosphereColor: "#FFFFFF",
     atmosphereAltitude: 0.1,
@@ -407,37 +400,35 @@ export function HomePage() {
       <div className="flex flex-col items-center justify-center py-40 h-screen md:h-auto dark:bg-black bg-white relative w-full">
         <div className="button-div flex flex-col items-center justify-center py-5">
           <h1 className="text-8xl font-bold">Five20</h1>
-         
           <Button className="items-center">
             <Link href="/register">Get Started</Link>
           </Button>
         </div>
-        <div className="max-w-7xl mx-auto w-full relative overflow-hidden h-full md:h-[40rem] px-4">
-          <motion.div
-            initial={{
-              opacity: 0,
-              y: 20,
-            }}
-            animate={{
-              opacity: 1,
-              y: 0,
-            }}
-            transition={{
-              duration: 1,
-            }}
-            className="div"
-          >
-            <h2 className="text-center text-xl md:text-4xl font-bold text-black dark:text-white">
-              Make an impact on global food waste management.
-            </h2>
-            <p className="text-center text-base md:text-lg font-normal text-neutral-700 dark:text-neutral-200 max-w-md mt-2 mx-auto">
-              This is the description for the platform. :)
+        <div className="flex flex-row items-center w-full mx-auto relative overflow-hidden h-full md:h-[40rem]">
+          <div className="items-center w-full flex flex-col">
+            <h1 className="text-4xl font-bold text-black text-end">
+              520M tons of food wasted.
+            </h1>
+            <p className="text-center text-base md:text-lg font-normal text-neutral-700 dark:text-neutral-200 max-w-md mx-auto p-10">
+              520 million tons of food is being wasted by restaurants each year
+              globally. Restaurants can reduce their environmental impact and
+              costs by addressing food waste and aligning business practices
+              with sustainability goals.
             </p>
-          </motion.div>
+          </div>
+          <div className="w-full h-full">
+            <World data={sampleArcs} globeConfig={globeConfig} />
+          </div>
 
-          <div className="absolute w-full bottom-0 inset-x-0 h-40 bg-gradient-to-b pointer-events-none select-none from-transparent dark:to-black to-white z-40" />
-          <div className="absolute w-full -bottom-20 h-72 md:h-full z-10">
-            <World data={sampleArcs} globeConfig={globeConfig} />;
+          <div className="items-center w-full flex flex-col">
+            <h1 className="text-4xl font-bold text-black">What do we do?</h1>
+            <p className="text-center text-base md:text-lg font-normal text-neutral-700 dark:text-neutral-200 max-w-md mx-auto p-10">
+              Five20 empowers restaurants to become beacons of sustainability.
+              Through our user-friendly mobile platform, we connect businesses
+              to seamlessly exchange surplus food and supplies at discounted
+              prices. Our platform also simplifies tax deductions for donations,
+              minimizing the environmental impact of the restaurant industry.
+            </p>
           </div>
         </div>
       </div>
